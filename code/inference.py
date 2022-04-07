@@ -31,9 +31,9 @@ class Inference:
             preds = trainer.predict(test_dataset)
             outputs = np.argmax(preds[0], axis=-1)
             self._decoder(outputs)
-            self.logger.info(f"Success inference: {self.model}")
+            self.logger.info(f"Success inference: {self.model_name}")
         except:
-            self.logger.exception(f"Fail inference: {self.model}")
+            self.logger.exception(f"Fail inference: {self.model_name}")
         return self.submission
 
     def save_submission(self, exp_name: str):
